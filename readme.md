@@ -1,12 +1,12 @@
 # Task Manager Application
 
-This is a simple task manager application built using Node.js, Express.js, MongoDB, and Mongoooooose.
+This is a simple task manager application built using Node.js, Express.js, MongoDB, and Mongoose.
 
 ## Overview
 
 The Task Manager Application allows users to manage their tasks. Users can perform CRUD (Create, Read, Update, Delete) operations on tasks. Each task consists of a name, author, description, and optional date.
 
-## How to Run the Projecttt
+## How to Run the Project
 
 ### Prerequisites
 
