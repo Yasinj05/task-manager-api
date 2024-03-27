@@ -23,7 +23,7 @@ Before running this project, make sure you have the following installed on your 
 git clone https://github.com/Yasinj05/task-manager-api.git
 ```
 
-#### 2. Go to the project directory
+#### 2. Go to the project directory:
 
 ```
 cd task-manager-api
