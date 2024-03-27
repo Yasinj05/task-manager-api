@@ -15,7 +15,7 @@ Before running this project, make sure you have the following installed on your 
 - Node.js: [Download and Install Node.js](https://nodejs.org/)
 - MongoDB: [Download and Install MongoDB](https://www.mongodb.com/try/download/community)
 
-### Getting Started
+## Getting Started
 
 #### 1. Clone the repository:
 
