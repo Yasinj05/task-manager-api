@@ -40,6 +40,8 @@ function validateTask(task) {
 }
 
 // Export Task model, validation function, and task schema
-exports.Task = Task;
-exports.validate = validateTask;
-exports.taskSchema = taskSchema;
+module.exports = {
+  Task: Task,
+  validate: validateTask,
+  taskSchema: taskSchema,
+};

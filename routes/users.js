@@ -1,6 +1,8 @@
 const express = require("express");
+const jwt = require("jsonwebtoken"); // Import JWT for token generation
+const config = require("config"); // Import config for accessing configuration settings
 const _ = require("lodash");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt"); // Import bcrypt for password hashing
 const { User, validate } = require("../models/user"); // Import required modules and the User model
 const router = express.Router(); // Create an instance of Express Router
 
@@ -24,7 +26,11 @@ router.post("/", async (req, res) => {
   await user.save();
 
   // Send a response with only necessary user information (excluding the password)
-  res.send(_.pick(user, ["_id", "name", "email"]));
+
+  const token = user.generateAuthToken(); // Generate JWT token
+  res
+    .header("x-auth-token", token) // Set the token in the response header
+    .send(_.pick(user, ["_id", "name", "email"])); // Send user information (excluding password) in the response
 });
 
 module.exports = router; // Export the router for use in other files

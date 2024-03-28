@@ -1,4 +1,6 @@
 const Joi = require("joi");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 const mongoose = require("mongoose");
 
 // Define the schema for the User model
@@ -24,6 +26,12 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+// Method to generate authentication token for user
+userSchema.methods.generateAuthToken = function () {
+  const token = jwt.sign({ _id: this._id }, config.get("jwtPrivateKey"));
+  return token;
+};
+
 // Create the User model from the schema
 const User = mongoose.model("User", userSchema);
 
@@ -41,6 +49,8 @@ function validateUser(user) {
 }
 
 // Export User model, validation function, and user schema
-exports.User = User;
-exports.validate = validateUser;
-exports.userSchema = userSchema;
+module.exports = {
+  User: User,
+  validate: validateUser,
+  userSchema: userSchema,
+};

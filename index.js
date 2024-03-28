@@ -1,8 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const config = require("config");
 const tasksRouter = require("./routes/tasks"); // Import tasks router
 const usersRouter = require("./routes/users"); // Import users router
 const authRouter = require("./routes/auth"); // Import authentication router
+
+// Check if jwtPrivateKey is defined in configuration
+if (!config.get("jwtPrivateKey")) {
+  console.error("FATAL ERROR: jwtPrivateKey is not defined.");
+  process.exit(1);
+}
 
 const app = express(); // Create Express application
 const PORT = process.env.PORT || 3000; // Define port for server to listen on

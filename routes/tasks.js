@@ -1,4 +1,6 @@
 const express = require("express");
+const validateObjectId = require("../middleware/validateObjectId"); // Import middleware for validating MongoDB ObjectIDs
+const auth = require("../middleware/auth"); // Import authentication middleware
 const { Task, validate } = require("../models/task"); // Import Task model and validation function
 const router = express.Router(); // Create an Express router
 
@@ -14,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 // POST a new task
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const { error } = validate(req.body); // Validate request body
     if (error) return res.status(400).send(error.details[0].message); // Send 400 status code for bad request
@@ -35,7 +37,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT update task by ID
-router.put("/:id", async (req, res) => {
+router.put("/:id", [auth, validateObjectId], async (req, res) => {
   try {
     const { error } = validate(req.body); // Validate request body
     if (error) return res.status(400).send(error.details[0].message); // Send 400 status code for bad request
@@ -61,7 +63,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE task by ID
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", [auth, validateObjectId], async (req, res) => {
   try {
     // Find and delete the task with the given ID
     const task = await Task.findByIdAndDelete(req.params.id);
