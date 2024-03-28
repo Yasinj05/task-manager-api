@@ -27,7 +27,6 @@ const Task = mongoose.model("Task", taskSchema);
 
 // Validation function for validating task objects
 function validateTask(task) {
-  // Define Joi schema for validation
   const schema = Joi.object({
     name: Joi.string().required(),
     author: Joi.string().min(2).max(20).required(),
@@ -35,11 +34,9 @@ function validateTask(task) {
     date: Joi.date().required(),
   });
 
-  // Validate the task object against the schema
   return schema.validate(task);
 }
 
-// Export Task model, validation function, and task schema
 module.exports = {
   Task: Task,
   validate: validateTask,

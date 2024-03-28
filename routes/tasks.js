@@ -1,26 +1,25 @@
 const express = require("express");
-const validateObjectId = require("../middleware/validateObjectId"); // Import middleware for validating MongoDB ObjectIDs
-const auth = require("../middleware/auth"); // Import authentication middleware
-const { Task, validate } = require("../models/task"); // Import Task model and validation function
-const router = express.Router(); // Create an Express router
+const validateObjectId = require("../middleware/validateObjectId");
+const auth = require("../middleware/auth");
+const { Task, validate } = require("../models/task");
+const router = express.Router();
 
 // GET all tasks
 router.get("/", async (req, res) => {
   try {
-    const tasks = await Task.find(); // Fetch all tasks from the database
-    res.send(tasks); // Send tasks as response
+    const tasks = await Task.find();
+    res.send(tasks);
   } catch (error) {
     console.error("Error fetching tasks:", error);
-    res.status(500).send("Internal Server Error"); // Send 500 status code for server errors
+    res.status(500).send("Internal Server Error");
   }
 });
 
 // POST a new task
 router.post("/", auth, async (req, res) => {
   try {
-    const { error } = validate(req.body); // Validate request body
-    if (error) return res.status(400).send(error.details[0].message); // Send 400 status code for bad request
-
+    const { error } = validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
     // Create a new task object and save it to the database
     const task = new Task({
       name: req.body.name,
@@ -29,18 +28,18 @@ router.post("/", auth, async (req, res) => {
       date: req.body.date,
     });
     await task.save();
-    res.send(task); // Send the created task as response
+    res.send(task);
   } catch (error) {
     console.error("Error creating task:", error);
-    res.status(500).send("Internal Server Error"); // Send 500 status code for server errors
+    res.status(500).send("Internal Server Error");
   }
 });
 
 // PUT update task by ID
 router.put("/:id", [auth, validateObjectId], async (req, res) => {
   try {
-    const { error } = validate(req.body); // Validate request body
-    if (error) return res.status(400).send(error.details[0].message); // Send 400 status code for bad request
+    const { error } = validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
 
     // Find and update the task with the given ID
     const task = await Task.findByIdAndUpdate(
@@ -54,11 +53,11 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
       { new: true } // Return the updated task
     );
     if (!task)
-      return res.status(404).send("The task with the given ID was not found"); // Send 404 status code if task not found
-    res.send(task); // Send the updated task as response
+      return res.status(404).send("The task with the given ID was not found");
+    res.send(task);
   } catch (error) {
     console.error("Error updating task:", error);
-    res.status(500).send("Internal Server Error"); // Send 500 status code for server errors
+    res.status(500).send("Internal Server Error");
   }
 });
 
@@ -68,12 +67,12 @@ router.delete("/:id", [auth, validateObjectId], async (req, res) => {
     // Find and delete the task with the given ID
     const task = await Task.findByIdAndDelete(req.params.id);
     if (!task)
-      return res.status(404).send("The task with the given ID was not found"); // Send 404 status code if task not found
-    res.send(task); // Send the deleted task as response
+      return res.status(404).send("The task with the given ID was not found");
+    res.send(task);
   } catch (error) {
     console.error("Error deleting task:", error);
-    res.status(500).send("Internal Server Error"); // Send 500 status code for server errors
+    res.status(500).send("Internal Server Error");
   }
 });
 
-module.exports = router; // Export the router
+module.exports = router;

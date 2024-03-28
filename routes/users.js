@@ -1,31 +1,25 @@
 const express = require("express");
-const jwt = require("jsonwebtoken"); // Import JWT for token generation
-const config = require("config"); // Import config for accessing configuration settings
+const jwt = require("jsonwebtoken");
+const config = require("config");
 const _ = require("lodash");
-const bcrypt = require("bcrypt"); // Import bcrypt for password hashing
-const { User, validate } = require("../models/user"); // Import required modules and the User model
-const router = express.Router(); // Create an instance of Express Router
+const bcrypt = require("bcrypt");
+const { User, validate } = require("../models/user");
+const router = express.Router();
 
 router.post("/", async (req, res) => {
-  // Validate the request body using the validate function from the User model
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message); // Return error if validation fails
+  if (error) return res.status(400).send(error.details[0].message);
 
-  // Check if the user already exists with the given email
   let user = await User.findOne({ email: req.body.email });
-  if (user) return res.status(400).send("User already registered."); // Return error if user already exists
+  if (user) return res.status(400).send("User already registered.");
 
-  // Create a new user object with selected fields from the request body
   user = new User(_.pick(req.body, ["name", "email", "password"]));
 
   // Hash the password before saving to the database
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
 
-  // Save the user to the database
   await user.save();
-
-  // Send a response with only necessary user information (excluding the password)
 
   const token = user.generateAuthToken(); // Generate JWT token
   res
@@ -33,4 +27,4 @@ router.post("/", async (req, res) => {
     .send(_.pick(user, ["_id", "name", "email"])); // Send user information (excluding password) in the response
 });
 
-module.exports = router; // Export the router for use in other files
+module.exports = router;
