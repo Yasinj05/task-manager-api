@@ -1,15 +1,6 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
 
-// Connect to MongoDB database
-mongoose
-  .connect("mongodb://localhost/task-manager", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to MongoDB..."))
-  .catch((err) => console.error("Could not connect to MongoDB:", err));
-
 // Define the schema for the Task model
 const taskSchema = new mongoose.Schema({
   name: { type: String, required: true },
