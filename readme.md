@@ -4,7 +4,7 @@ This is a simple task manager application built using Node.js, Express.js, Mongo
 
 ## Overview
 
-The Task Manager Application allows users to manage their tasks. Users can perform CRUD (Create, Read, Update, Delete) operations on tasks. Each task consists of a name, author, description, and optional date.
+The Task Manager Application allows users to create, update, delete, and view tasks. Users can also register an account and authenticate to perform these actions.
 
 ## How to Run the Project
 
@@ -41,20 +41,38 @@ npm install / npm i
 mongod
 ```
 
-#### 5. Start the server:
+#### 5. Set Environment Variables:
+
+- If you look at config/default.json, you'll see a property called jwtPrivateKey. This key is used to encrypt JSON web tokens. So, for security reasons, it should not be checked into the source control. I've set a default value here to make it easier for you to get up and running with this project. For a production scenario, you should store this key as an environment variable.
+
+##### On Mac:
+
+```
+export vidly_jwtPrivateKey=yourSecureKey
+```
+
+##### On Windows:
+
+```
+set vidly_jwtPrivateKey=yourSecureKey
+```
+
+#### 6. Start the server:
 
 ```
 npm start
 ```
 
-#### The server will be running at `http://localhost:3000`.
+#### 7. Access the Application:
 
-## Usage
+- Once the server is running, you can access the application:
+- Users: `http://localhost:3000/api/users`
+- Tasks: `http://localhost:3000/api/tasks`
+- Authentication: `http://localhost:3000/api/auth`
 
-To create a new task, send a POST request to /api/tasks with JSON data containing the task details (name, author, task, date).
-To update an existing task, send a PUT request to /api/tasks/:id with JSON data containing the updated task details.
-To delete a task, send a DELETE request to /api/tasks/:id.
-You can also retrieve all tasks by sending a GET request to /api/tasks.
+## Explanation
+
+The project uses Node.js with Express.js for the backend and MongoDB as the database. It follows a RESTful API design pattern for managing tasks and users. Authentication is implemented using JWT tokens, and user passwords are securely hashed using bcrypt.
 
 ## Contributing
 
