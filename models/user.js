@@ -42,5 +42,5 @@ function validateUser(user) {
 
 // Export User model, validation function, and user schema
 exports.User = User;
-exports.validateUser = validateUser; // Corrected the export name
+exports.validate = validateUser;
 exports.userSchema = userSchema;

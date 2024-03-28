@@ -1,6 +1,6 @@
 const express = require("express");
-const { Task, validate } = require("../models/task");
-const router = express.Router();
+const { Task, validate } = require("../models/task"); // Import Task model and validation function
+const router = express.Router(); // Create an Express router
 
 // GET all tasks
 router.get("/", async (req, res) => {
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
     res.send(task); // Send the created task as response
   } catch (error) {
     console.error("Error creating task:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error"); // Send 500 status code for server errors
   }
 });
 
@@ -56,7 +56,7 @@ router.put("/:id", async (req, res) => {
     res.send(task); // Send the updated task as response
   } catch (error) {
     console.error("Error updating task:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error"); // Send 500 status code for server errors
   }
 });
 
@@ -70,8 +70,8 @@ router.delete("/:id", async (req, res) => {
     res.send(task); // Send the deleted task as response
   } catch (error) {
     console.error("Error deleting task:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error"); // Send 500 status code for server errors
   }
 });
 
-module.exports = router;
+module.exports = router; // Export the router
