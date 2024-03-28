@@ -3,7 +3,7 @@ const Joi = require("joi");
 
 // Connect to MongoDB database
 mongoose
-  .connect("mongodb://localhost/todolist", {
+  .connect("mongodb://localhost/task-manager", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

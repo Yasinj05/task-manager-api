@@ -1,19 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
-const bodyParser = require("body-parser");
 const { Task, validate } = require("./models/task");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware setup
-app.use(cors());
-app.use(bodyParser.json()); // Parse JSON request bodies
-
 // Connect to MongoDB
 mongoose
-  .connect("mongodb://localhost/todolist", {
+  .connect("mongodb://localhost/task-manager", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
