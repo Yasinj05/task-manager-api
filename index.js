@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const { Task, validate } = require("./models/task");
-const tasks = require("./routes/tasks"); // Import the tasks router
+const tasksRouter = require("./routes/tasks");
+const usersRouter = require("./routes/users");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Mount the tasks router under the /api/tasks path
-app.use("/api/tasks", tasks);
+app.use("/api/tasks", tasksRouter); // Changed to use tasksRouter
+app.use("/api/users", usersRouter); // Added users router
 
 // Connect to MongoDB
 mongoose
@@ -20,12 +21,6 @@ mongoose
   })
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Internal Server Error");
-});
 
 // Start the server
 app.listen(PORT, () => {
