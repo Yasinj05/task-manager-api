@@ -3,10 +3,23 @@ const Joi = require("joi");
 
 // Define the schema for the Task model
 const taskSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  author: { type: String, required: true, minlength: 2, maxlength: 20 },
-  task: { type: String, required: true },
-  date: { type: Date },
+  name: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    required: true,
+    minlength: 2,
+    maxlength: 20,
+  },
+  task: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
+  },
 });
 
 // Create the Task model from the schema
