@@ -48,13 +48,13 @@ mongod
 ##### On Mac:
 
 ```
-export vidly_jwtPrivateKey=yourSecureKey
+export taskManager_jwtPrivateKey=yourSecureKey
 ```
 
 ##### On Windows:
 
 ```
-set vidly_jwtPrivateKey=yourSecureKey
+set taskManager_jwtPrivateKey=yourSecureKey
 ```
 
 #### 6. Start the server:
