@@ -17,71 +17,71 @@ Before running this project, make sure you have the following installed on your 
 
 ## Getting Started
 
-#### 1. Clone the repository:
+### 1. Clone the repository:
 
 ```
 git clone https://github.com/Yasinj05/task-manager-api.git
 ```
 
-#### 2. Go to the project directory:
+### 2. Go to the project directory:
 
 ```
 cd task-manager-api
 ```
 
-#### 3. Install dependencies:
+### 3. Install dependencies:
 
 ```
 npm install / npm i
 ```
 
-#### 4. Start MongoDB:
+### 4. Start MongoDB:
 
 ```
 mongod
 ```
 
-#### 5. Set Environment Variables:
+### 5. Set Environment Variables:
 
 - If you look at config/default.json, you'll see a property called jwtPrivateKey. This key is used to encrypt JSON web tokens. So, for security reasons, it should not be checked into the source control. I've set a default value here to make it easier for you to get up and running with this project. For a production scenario, you should store this key as an environment variable.
 
-##### On Mac:
+#### On Mac:
 
 ```
 export taskManager_jwtPrivateKey=yourSecureKey
 ```
 
-##### On Windows:
+#### On Windows:
 
 ```
 set taskManager_jwtPrivateKey=yourSecureKey
 ```
 
-#### 6. Start the server:
+### 6. Start the server:
 
 ```
 npm start
 ```
 
-#### 7. Access the Application:
+### 7. Access the Application:
 
 Once the server is running, you can access the application:
 
-### Users:
+#### Users:
 
 - **Profile:** `GET` [http://localhost:3000/api/users/me](http://localhost:3000/api/users/me)
 - **All Users:** `GET` [http://localhost:3000/api/users](http://localhost:3000/api/users)
 - **Register:** `POST` [http://localhost:3000/api/users](http://localhost:3000/api/users)
 - **Login:** `POST` [http://localhost:3000/api/auth](http://localhost:3000/api/auth)
 
-### Tasks:
+#### Tasks:
 
 - **All Tasks:** `GET` [http://localhost:3000/api/tasks](http://localhost:3000/api/tasks)
 - **Create Task:** `POST` [http://localhost:3000/api/tasks](http://localhost:3000/api/tasks)
 - **Update Task:** `PUT` [http://localhost:3000/api/tasks/:id](http://localhost:3000/api/tasks/:id)
 - **Delete Task:** `DELETE` [http://localhost:3000/api/tasks/:id](http://localhost:3000/api/tasks/:id)
 
-### Authentication:
+#### Authentication:
 
 - **Login:** `POST` [http://localhost:3000/api/auth](http://localhost:3000/api/auth)
 
