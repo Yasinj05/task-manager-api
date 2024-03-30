@@ -1,7 +1,7 @@
 const express = require("express");
-const validateObjectId = require("../middleware/validateObjectId");
 const auth = require("../middleware/auth");
 const { Task, validate } = require("../models/task");
+const admin = require("../middleware/admin");
 const router = express.Router();
 
 // GET all tasks
@@ -36,7 +36,7 @@ router.post("/", auth, async (req, res) => {
 });
 
 // PUT update task by ID
-router.put("/:id", [auth, validateObjectId], async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
   try {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -62,7 +62,7 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
 });
 
 // DELETE task by ID
-router.delete("/:id", [auth, validateObjectId], async (req, res) => {
+router.delete("/:id", [auth, admin], async (req, res) => {
   try {
     // Find and delete the task with the given ID
     const task = await Task.findByIdAndDelete(req.params.id);
