@@ -65,10 +65,27 @@ npm start
 
 #### 7. Access the Application:
 
-- Once the server is running, you can access the application:
-- Users: `http://localhost:3000/api/users`
-- Tasks: `http://localhost:3000/api/tasks`
-- Authentication: `http://localhost:3000/api/auth`
+Once the server is running, you can access the application:
+
+### Users:
+
+- **Profile:** `GET` [http://localhost:3000/api/users/me](http://localhost:3000/api/users/me)
+- **All Users:** `GET` [http://localhost:3000/api/users](http://localhost:3000/api/users)
+- **Register:** `POST` [http://localhost:3000/api/users](http://localhost:3000/api/users)
+- **Login:** `POST` [http://localhost:3000/api/auth](http://localhost:3000/api/auth)
+
+### Tasks:
+
+- **All Tasks:** `GET` [http://localhost:3000/api/tasks](http://localhost:3000/api/tasks)
+- **Create Task:** `POST` [http://localhost:3000/api/tasks](http://localhost:3000/api/tasks)
+- **Update Task:** `PUT` [http://localhost:3000/api/tasks/:id](http://localhost:3000/api/tasks/:id)
+- **Delete Task:** `DELETE` [http://localhost:3000/api/tasks/:id](http://localhost:3000/api/tasks/:id)
+
+### Authentication:
+
+- **Login:** `POST` [http://localhost:3000/api/auth](http://localhost:3000/api/auth)
+
+Ensure to replace `:id` in the route URLs with the actual task ID when performing update or delete operations.
 
 ## Explanation
 
