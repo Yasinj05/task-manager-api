@@ -94,10 +94,6 @@ Once the server is running, you can access the application:
 
 Ensure to replace `:id` in the route URLs with the actual task ID when performing update or delete operations.
 
-## Explanation
-
-The project uses Node.js with Express.js for the backend and MongoDB as the database. It follows a RESTful API design pattern for managing tasks and users. Authentication is implemented using JWT tokens, and user passwords are securely hashed using bcrypt.
-
 ## Contributing
 
 Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
