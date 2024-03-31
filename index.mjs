@@ -1,9 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const config = require("config");
-const tasksRouter = require("./routes/tasks");
-const usersRouter = require("./routes/users");
-const authRouter = require("./routes/auth");
+import express from "express";
+import mongoose from "mongoose";
+import config from "config";
+import tasksRouter from "./routes/tasks.mjs";
+import usersRouter from "./routes/users.mjs";
+import authRouter from "./routes/auth.mjs";
 
 // Check if jwtPrivateKey is defined in configuration
 if (!config.get("jwtPrivateKey")) {

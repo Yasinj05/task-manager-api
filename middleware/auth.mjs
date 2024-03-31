@@ -1,6 +1,6 @@
 // Middleware function to authenticate user requests using JSON web tokens.
-const jwt = require("jsonwebtoken");
-const config = require("config");
+import jwt from "jsonwebtoken";
+import config from "config";
 
 function auth(req, res, next) {
   const token = req.header("x-auth-token");
@@ -16,4 +16,4 @@ function auth(req, res, next) {
   }
 }
 
-module.exports = auth;
+export default auth;

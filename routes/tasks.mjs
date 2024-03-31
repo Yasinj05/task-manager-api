@@ -1,7 +1,8 @@
-const express = require("express");
-const auth = require("../middleware/auth");
-const { Task, validate } = require("../models/task");
-const admin = require("../middleware/admin");
+import express from "express";
+import auth from "../middleware/auth.mjs";
+import admin from "../middleware/admin.mjs";
+import { Task, validate } from "../models/task.mjs";
+
 const router = express.Router();
 
 // GET all tasks
@@ -75,4 +76,4 @@ router.delete("/:id", [auth, admin], async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

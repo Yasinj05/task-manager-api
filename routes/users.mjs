@@ -1,8 +1,9 @@
-const express = require("express");
-const auth = require("../middleware/auth");
-const _ = require("lodash");
-const bcrypt = require("bcrypt");
-const { User, validate } = require("../models/user");
+import express from "express";
+import auth from "../middleware/auth.mjs";
+import _ from "lodash";
+import bcrypt from "bcrypt";
+import { User, validate } from "../models/user.mjs";
+
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
@@ -31,4 +32,4 @@ router.post("/", async (req, res) => {
     .send(_.pick(user, ["_id", "name", "email"])); // Send user information (excluding password) in the response
 });
 
-module.exports = router;
+export default router;

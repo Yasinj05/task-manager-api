@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Joi = require("joi");
+import mongoose from "mongoose";
+import Joi from "joi";
 
 // Define the schema for the Task model
 const taskSchema = new mongoose.Schema({
@@ -37,8 +37,4 @@ function validateTask(task) {
   return schema.validate(task);
 }
 
-module.exports = {
-  Task: Task,
-  validate: validateTask,
-  taskSchema: taskSchema,
-};
+export { Task, validateTask as validate, taskSchema };
