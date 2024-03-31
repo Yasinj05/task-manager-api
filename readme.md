@@ -4,7 +4,14 @@ This is a simple task manager application built using Node.js, Express.js, Mongo
 
 ## Overview
 
-The Task Manager Application allows users to create, update, delete, and view tasks. Users can also register an account and authenticate to perform these actions.
+This project provides endpoints for managing tasks and user authentication. Key features include:
+
+- User authentication with JWT (JSON Web Tokens)
+- CRUD operations for tasks
+- RESTful API design
+- MongoDB database integration
+- Middleware for authentication and authorization
+- Error handling and validation
 
 ## How to Run the Project
 
