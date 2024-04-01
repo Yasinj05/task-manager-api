@@ -39,7 +39,7 @@ cd task-manager-api
 ### 3. Install dependencies:
 
 ```
-npm install / npm i
+npm install
 ```
 
 ### 4. Start MongoDB:
