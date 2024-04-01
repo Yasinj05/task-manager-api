@@ -4,6 +4,10 @@ import config from "config";
 import tasksRouter from "./routes/tasks.mjs";
 import usersRouter from "./routes/users.mjs";
 import authRouter from "./routes/auth.mjs";
+import dotenv from "dotenv";
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Check if jwtPrivateKey is defined in configuration
 if (!config.get("jwtPrivateKey")) {
@@ -24,7 +28,7 @@ app.use("/api/auth", authRouter);
 
 // Connect to MongoDB
 mongoose
-  .connect("mongodb://localhost/task-manager", {
+  .connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
