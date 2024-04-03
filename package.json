@@ -13,10 +13,13 @@
     "bcrypt": "^5.1.1",
     "config": "^3.3.11",
     "express": "^4.19.2",
+    "express-async-errors": "^3.1.1",
     "joi": "^17.12.2",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^8.2.3",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "winston": "^3.13.0",
+    "winston-mongodb": "^5.1.1"
   }
 }
