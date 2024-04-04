@@ -1,7 +1,10 @@
 import config from "config";
+import winston from "winston";
 
 export default function configSetup() {
   if (!config.get("jwtPrivateKey")) {
-    throw new Error("FATAL ERROR: jwtPrivateKey is not defined.");
+    const errorMessage = "FATAL ERROR: jwtPrivateKey is not defined.";
+    winston.error(errorMessage);
+    throw new Error(errorMessage);
   }
 }
