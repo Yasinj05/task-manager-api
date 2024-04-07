@@ -3,7 +3,7 @@ import Joi from "joi";
 
 // Define the schema for the Task model
 const taskSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },
@@ -28,7 +28,7 @@ const Task = mongoose.model("Task", taskSchema);
 // Validation function for validating task objects
 function validateTask(task) {
   const schema = Joi.object({
-    name: Joi.string().required(),
+    title: Joi.string().required(),
     author: Joi.string().min(2).max(20).required(),
     task: Joi.string().required(),
     date: Joi.date().required(),

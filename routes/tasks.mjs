@@ -18,7 +18,7 @@ router.post("/", auth, async (req, res, next) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   const task = new Task({
-    name: req.body.name,
+    title: req.body.title,
     author: req.body.author,
     task: req.body.task,
     date: req.body.date,
@@ -35,7 +35,7 @@ router.put("/:id", auth, async (req, res, next) => {
   const task = await Task.findByIdAndUpdate(
     req.params.id,
     {
-      name: req.body.name,
+      title: req.body.title,
       author: req.body.author,
       task: req.body.task,
       date: req.body.date,
