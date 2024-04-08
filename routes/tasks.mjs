@@ -22,6 +22,7 @@ router.post("/", auth, async (req, res, next) => {
     author: req.body.author,
     task: req.body.task,
     date: req.body.date,
+    category: req.body.category,
   });
   await task.save();
   res.send(task);
@@ -39,6 +40,7 @@ router.put("/:id", auth, async (req, res, next) => {
       author: req.body.author,
       task: req.body.task,
       date: req.body.date,
+      category: req.body.category,
     },
     { new: true }
   );

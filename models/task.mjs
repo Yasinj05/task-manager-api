@@ -20,6 +20,11 @@ const taskSchema = new mongoose.Schema({
   date: {
     type: Date,
   },
+  category: {
+    type: String,
+    required: true,
+    enum: ["Personal", "Work", "Study", "Others"],
+  },
 });
 
 // Create the Task model from the schema
@@ -32,6 +37,9 @@ function validateTask(task) {
     author: Joi.string().min(2).max(20).required(),
     task: Joi.string().required(),
     date: Joi.date().required(),
+    category: Joi.string()
+      .valid("Personal", "Work", "Study", "Others")
+      .required(),
   });
 
   return schema.validate(task);
