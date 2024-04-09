@@ -19,7 +19,6 @@ router.post("/", auth, async (req, res, next) => {
 
   const task = new Task({
     title: req.body.title,
-    author: req.body.author,
     task: req.body.task,
     date: req.body.date,
     category: req.body.category,
@@ -37,7 +36,6 @@ router.put("/:id", auth, async (req, res, next) => {
     req.params.id,
     {
       title: req.body.title,
-      author: req.body.author,
       task: req.body.task,
       date: req.body.date,
       category: req.body.category,
