@@ -50,7 +50,7 @@ mongod
 
 ### 5. Set Environment Variables:
 
-- If you look at config/default.json, you'll see a property called jwtPrivateKey. This key is used to encrypt JSON web tokens. So, for security reasons, it should not be checked into the source control. I've set a default value here to make it easier for you to get up and running with this project. For a production scenario, you should store this key as an environment variable.
+- The property jwtPrivateKey in config/default.json encrypts JSON web tokens, not to be checked in source control for security reasons. Stored as an environment variable for production scenarios.
 
 #### On Mac:
 
