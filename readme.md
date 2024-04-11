@@ -24,31 +24,31 @@ Before running this project, make sure you have the following installed on your 
 
 ## Getting Started
 
-### 1. Clone the repository:
+### Clone the repository:
 
 ```
 git clone https://github.com/Yasinj05/task-manager-api.git
 ```
 
-### 2. Go to the project directory:
+### Go to the project directory:
 
 ```
 cd task-manager-api
 ```
 
-### 3. Install dependencies:
+### Install dependencies:
 
 ```
 npm install
 ```
 
-### 4. Start MongoDB:
+### Start MongoDB:
 
 ```
 mongod
 ```
 
-### 5. Set Environment Variables:
+### Set Environment Variables:
 
 - The property jwtPrivateKey in config/default.json encrypts JSON web tokens, not to be checked in source control for security reasons. Stored as an environment variable for production scenarios.
 
@@ -64,13 +64,13 @@ export taskManager_jwtPrivateKey=yourSecureKey
 set taskManager_jwtPrivateKey=yourSecureKey
 ```
 
-### 6. Start the server:
+### Start the server:
 
 ```
 npm start
 ```
 
-### 7. Access the Application:
+### Access the Application:
 
 Once the server is running, you can access the application:
 
