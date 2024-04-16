@@ -42,6 +42,12 @@ cd task-manager-api
 npm install
 ```
 
+### Run the Tests:
+
+```
+npm test
+```
+
 ### Start MongoDB:
 
 ```
