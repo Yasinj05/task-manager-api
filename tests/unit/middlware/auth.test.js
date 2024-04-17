@@ -1,3 +1,5 @@
+// Test auth middleware to verify user authentication
+
 import auth from "../../../middleware/auth.mjs";
 import { User } from "../../../models/user.mjs";
 import { jest } from "@jest/globals";
