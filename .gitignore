@@ -4,3 +4,6 @@ node_modules/
 # Ignore log files
 logfile.log
 uncaughtExceptions.log
+
+# testing
+/coverage
