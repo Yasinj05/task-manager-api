@@ -48,6 +48,8 @@ npm install
 npm test
 ```
 
+(Currently, only unit tests have been implemented on the project)
+
 ### Start MongoDB:
 
 ```
