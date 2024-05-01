@@ -1,4 +1,4 @@
-# Task Manager Application
+# Task Manager Application 📝
 
 This is a simple task manager application built using Node.js, Express.js, MongoDB, and Mongoose.
 
@@ -13,7 +13,7 @@ This project provides endpoints for managing tasks and user authentication. Key 
 - Middleware for authentication and authorization
 - Error handling and validation
 
-## How to Run the Project
+## How to Run the Project 💡
 
 ### Prerequisites
 
@@ -22,7 +22,7 @@ Before running this project, make sure you have the following installed on your 
 - Node.js: [Download and Install Node.js](https://nodejs.org/)
 - MongoDB: [Download and Install MongoDB](https://www.mongodb.com/try/download/community)
 
-## Getting Started
+## Getting Started 🚀
 
 ### Clone the repository:
 
@@ -106,6 +106,6 @@ Ensure to replace `:id` in the route URLs with the actual task ID when performin
 
 Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
-## License
+## License ⚖️
 
 This project is licensed under the MIT License - see the LICENSE file for details.
