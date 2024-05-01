@@ -2,7 +2,7 @@ import express from "express";
 import Joi from "joi";
 import _ from "lodash";
 import bcrypt from "bcrypt";
-import { User } from "../models/user.mjs";
+import { User } from "../models/user.js";
 
 const router = express.Router();
 

@@ -1,7 +1,7 @@
 // Test auth middleware to verify user authentication
 
-import auth from "../../../middleware/auth.mjs";
-import { User } from "../../../models/user.mjs";
+import auth from "../../../middleware/auth.js";
+import { User } from "../../../models/user.js";
 import { jest } from "@jest/globals";
 import mongoose from "mongoose";
 

@@ -1,6 +1,6 @@
 // Test user.generateAuthToken method to ensure it returns a valid JWT
 
-import { User } from "../../../models/user.mjs";
+import { User } from "../../../models/user.js";
 import jwt from "jsonwebtoken";
 import config from "config";
 import mongoose from "mongoose";

@@ -1,8 +1,8 @@
 import express from "express";
-import configSetup from "./startup/config.mjs";
-import dbSetup from "./startup/db.mjs";
-import loggingSetup from "./startup/logging.mjs";
-import routesSetup from "./startup/routes.mjs";
+import configSetup from "./startup/config.js";
+import dbSetup from "./startup/db.js";
+import loggingSetup from "./startup/logging.js";
+import routesSetup from "./startup/routes.js";
 import winston from "winston";
 
 // Create Express application instance
