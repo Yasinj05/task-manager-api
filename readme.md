@@ -56,20 +56,11 @@ npm test
 mongod
 ```
 
-### Set Environment Variables:
-
-- The property jwtPrivateKey in config/default.json encrypts JSON web tokens, not to be checked in source control for security reasons. Stored as an environment variable for production scenarios.
-
-#### On Mac:
+### Create a .env file in the root directory and add the following:
 
 ```
-export taskManager_jwtPrivateKey=yourSecureKey
-```
-
-#### On Windows:
-
-```
-set taskManager_jwtPrivateKey=yourSecureKey
+JWT_PRIVATE_KEY=your_jwt_private_key_here
+PORT=your-port
 ```
 
 ### Start the server:
