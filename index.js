@@ -4,6 +4,8 @@ import dbSetup from "./startup/db.js";
 import loggingSetup from "./startup/logging.js";
 import routesSetup from "./startup/routes.js";
 import winston from "winston";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Create Express application instance
 const app = express();

@@ -1,6 +1,7 @@
 // Middleware function to authenticate user requests using JSON web tokens.
 import jwt from "jsonwebtoken";
-import config from "config";
+import dotenv from "dotenv";
+dotenv.config();
 
 function auth(req, res, next) {
   const token = req.header("x-auth-token");
