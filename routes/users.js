@@ -1,7 +1,7 @@
 import express from "express";
 import auth from "../middleware/auth.js";
 import _ from "lodash";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { User, validate } from "../models/user.js";
 
 const router = express.Router();

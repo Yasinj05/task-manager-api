@@ -2,8 +2,9 @@
 
 import { User } from "../../../models/user.js";
 import jwt from "jsonwebtoken";
-import config from "config";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 describe("user.generateAuthToken", () => {
   it("should return a valid JWT", () => {
@@ -13,7 +14,7 @@ describe("user.generateAuthToken", () => {
     };
     const user = new User(payload);
     const token = user.generateAuthToken();
-    const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
+    const decoded = jwt.verify(token, process.env.JWT_PRIVATE_KEY);
     expect(decoded).toMatchObject(payload);
   });
 });
