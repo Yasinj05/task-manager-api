@@ -2,7 +2,6 @@ import express from "express";
 import auth from "../middleware/auth.js";
 import admin from "../middleware/admin.js";
 import { Task, validate } from "../models/task.js";
-import error from "../middleware/error.js";
 
 const router = express.Router();
 
